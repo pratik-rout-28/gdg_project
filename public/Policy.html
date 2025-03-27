@@ -1,0 +1,93 @@
+<!-- =============================
+📌 Policy & Advocacy Page - Frontend Only (HTML, CSS, JavaScript)
+============================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy & Advocacy</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('../assets/policy.jpg') no-repeat center center/cover;
+            color: #21024a;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: background 0.5s ease;
+            backdrop-filter: blur(10px);
+        }
+        .policy-container {
+            width: 90%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2), -10px -10px 20px rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .policy-list, .petition-section {
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: inset 8px 8px 16px rgba(0, 0, 0, 0.2), inset -8px -8px 16px rgba(255, 255, 255, 0.1);
+        }
+        .policy-item {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+        .petition-btn {
+            background: #ff758c;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.1);
+        }
+        .petition-btn:hover {
+            background: #ff5274;
+        }
+    </style>
+</head>
+<body>
+    <div class="policy-container">
+        <h1>Policy & Advocacy</h1>
+        <h3>Stay informed and support gender equality policies.</h3>
+
+        <div class="policy-list">
+            <h2>📜 Latest Gender Equality Policies</h2>
+            <p class="policy-item">✔ Equal Pay Act Amendment (2024)</p>
+            <p class="policy-item">✔ Women’s Workplace Protection Bill</p>
+            <p class="policy-item">✔ Education for All Girls Initiative</p>
+            <p class="policy-item">✔ Anti-Discrimination Law Strengthening</p>
+        </div>
+
+        <div class="petition-section">
+            <h2>✍ Sign a Petition for Change</h2>
+            <p>Support the movement by adding your voice.</p>
+            <button class="petition-btn" onclick="signPetition()">Sign Petition</button>
+            <p id="petition-message" style="margin-top:10px; font-weight:bold;"></p>
+        </div>
+    </div>
+
+    <script>
+        function signPetition() {
+            document.getElementById("petition-message").textContent = "✅ Thank you for signing! Your support makes a difference.";
+            document.getElementById("petition-message").style.color = "lightgreen";
+        }
+    </script>
+</body>
+</html>

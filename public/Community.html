@@ -1,0 +1,88 @@
+<!-- =============================
+📌 Community & Reporting Page - Frontend Only (HTML, CSS, JavaScript)
+============================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community & Reporting</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('../assets/community.jpg') no-repeat center center/cover;
+            color: #020356;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: background 0.5s ease;
+        }
+        .report-container {
+            width: 90%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2), -10px -10px 20px rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            margin-bottom: 15px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            resize: none;
+            font-size: 1rem;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.1);
+        }
+        button {
+            background: #ff758c;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #ff5274;
+        }
+    </style>
+</head>
+<body>
+    <div class="report-container">
+        <h1>Report Discrimination</h1>
+        <p>Submit your complaint anonymously. Our team will review and provide necessary assistance.</p>
+        <textarea id="report-input" rows="5" placeholder="Describe the issue..."></textarea>
+        <br><br>
+        <button onclick="submitReport()">Submit Report</button>
+        <p id="report-feedback" style="margin-top:10px; font-weight:bold;"></p>
+    </div>
+    <script>
+        function submitReport() {
+            const input = document.getElementById("report-input").value.trim();
+            const feedback = document.getElementById("report-feedback");
+            if (input.length > 10) {
+                feedback.textContent = "✅ Report submitted successfully! We will take action.";
+                feedback.style.color = "lightgreen";
+                document.getElementById("report-input").value = "";
+            } else {
+                feedback.textContent = "❌ Please provide a detailed description.";
+                feedback.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

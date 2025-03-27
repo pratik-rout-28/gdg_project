@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #36d1dc, #5b86e5);
+            color: #fff;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input {
+            width: 80%;
+            padding: 12px;
+            margin: auto;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        input:focus {
+            outline: none;
+            transform: scale(1.05);
+        }
+        button {
+            background: #fff;
+            color: #5b86e5;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background: #5b86e5;
+            color: #fff;
+            transform: scale(1.1);
+        }
+        p {
+            margin-top: 15px;
+        }
+        a {
+            color: #fff;
+            text-decoration: underline;
+            transition: 0.3s;
+        }
+        a:hover {
+            color: #b3d4fc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign In</h1>
+        <p>Access your account securely.</p>
+        <form id="login-form">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </div>
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Get user input
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            
+            // Default credentials (for testing)
+            const defaultEmail = "test@example.com";
+            const defaultPassword = "Password@123";
+            
+            if (email === defaultEmail && password === defaultPassword) {
+                alert("✅ Login successful! Redirecting to dashboard...");
+                window.location.href = "Dashboard_main.html"; // Redirect to dashboard
+            } else {
+                alert("❌ Invalid email or password. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!-- =============================
+📌 Skill Development & Scholarships Page - Frontend Only (HTML, CSS, JavaScript)
+============================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Development & Scholarships</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('../assets/skills.jpg') no-repeat center center/cover;
+            color: #17046a;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: background 0.5s ease;
+            backdrop-filter: blur(8px);
+        }
+        .skills-container {
+            width: 90%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2), -10px -10px 20px rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .course-section, .scholarship-section {
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: inset 8px 8px 16px rgba(0, 0, 0, 0.2), inset -8px -8px 16px rgba(255, 255, 255, 0.1);
+        }
+        select, button {
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button {
+            background: #f3b9c2;
+            color: #07033c;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.1);
+        }
+        button:hover {
+            background: #dcbdc3;
+        }
+    </style>
+</head>
+<body>
+    <div class="skills-container">
+        <h1>Skill Development & Scholarships</h1>
+        <div class="course-section">
+            <h2>Explore Free Online Courses</h2>
+            <select id="course-category">
+                <option value="tech">Technology</option>
+                <option value="business">Business & Leadership</option>
+                <option value="health">Healthcare & Wellness</option>
+            </select>
+            <button onclick="showCourses()">Find Courses</button>
+            <p id="course-list" style="margin-top:10px; font-weight:bold;"></p>
+        </div>
+        <div class="scholarship-section">
+            <h2>Find Scholarships</h2>
+            <button onclick="findScholarships()">Search Scholarships</button>
+            <div id="scholarship-list" class="scholarship-list"></div>
+        </div>
+    </div>
+    <script>
+        function showCourses() {
+            const category = document.getElementById("course-category").value;
+            const courseList = document.getElementById("course-list");
+            if (category === "tech") {
+                courseList.textContent = "🔹 Web Development, AI Basics, Python Programming";
+            } else if (category === "business") {
+                courseList.textContent = "🔹 Entrepreneurship, Digital Marketing, Project Management";
+            } else {
+                courseList.textContent = "🔹 Mental Health Awareness, Nursing Fundamentals, Fitness Training";
+            }
+        }
+        function findScholarships() {
+            const scholarships = [
+                "UNESCO Scholarships for Women",
+                "Google Women Techmakers Scholarship",
+                "AAUW International Fellowships",
+                "L’Oréal-UNESCO For Women in Science"
+            ];
+            const scholarshipList = document.getElementById("scholarship-list");
+            scholarshipList.innerHTML = "";
+            scholarships.forEach(scholarship => {
+                const p = document.createElement("p");
+                p.textContent = scholarship;
+                scholarshipList.appendChild(p);
+            });
+        }
+    </script>
+</body>
+</html>

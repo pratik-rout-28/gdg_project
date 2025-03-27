@@ -1,0 +1,104 @@
+<!-- =============================
+📌 Gamified Learning Page - Frontend Only (HTML, CSS, JavaScript)
+============================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamified Learning</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('../assets/game.jpg') no-repeat center center/cover;
+            color: #1d014d;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: background 0.5s ease;
+            backdrop-filter: blur(8px);
+        }
+        .game-container {
+            width: 90%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2), -10px -10px 20px rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .challenge {
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: inset 8px 8px 16px rgba(0, 0, 0, 0.2), inset -8px -8px 16px rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .challenge:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .points-display {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #650221;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Gamified Learning</h1>
+        <h3>Complete challenges, earn points, and track your progress!</h3>
+
+        <div class="challenge" onclick="completeChallenge(1)">
+            <h2>🔍 Spot Gender Bias in Media</h2>
+            <p>Analyze a news article and identify gender stereotypes.</p>
+        </div>
+
+        <div class="challenge" onclick="completeChallenge(2)">
+            <h2>🏆 Role Model Quiz</h2>
+            <p>Match famous female leaders to their achievements.</p>
+        </div>
+
+        <div class="challenge" onclick="completeChallenge(3)">
+            <h2>💰 Equal Pay Negotiation Game</h2>
+            <p>Play a workplace scenario and negotiate fair pay.</p>
+        </div>
+
+        <div class="challenge" onclick="completeChallenge(4)">
+            <h2>🗣️ My Voice Counts</h2>
+            <p>Submit a gender equality idea to earn points.</p>
+        </div>
+
+        <div class="points-display">
+            🎯 Total Points: <span id="points">0</span>
+        </div>
+    </div>
+
+    <script>
+        let points = 0;
+        const completedChallenges = new Set();
+
+        function completeChallenge(challengeId) {
+            if (!completedChallenges.has(challengeId)) {
+                completedChallenges.add(challengeId);
+                points += 10; // Add 10 points per completed challenge
+                document.getElementById("points").textContent = points;
+                alert("✅ Challenge completed! You've earned 10 points.");
+            } else {
+                alert("⚠️ You've already completed this challenge!");
+            }
+        }
+    </script>
+</body>
+</html>
